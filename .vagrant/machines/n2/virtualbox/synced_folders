@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/Users/indrajitsingh/study/set-me-up","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}

@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    consul:
+      host: 172.20.20.10
+      port: 8500

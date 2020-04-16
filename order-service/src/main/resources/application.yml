@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: order
+  cloud:
+    consul:
+      host: 172.20.20.10
+      port: 8500
+  kafka:
+    producer:
+      value-serializer: com.ienliven.serializer.OrderSerializers
+      bootstrap-servers:
+        - localhost:9093
+        - localhost:9094
+
+server:
+  port: 8082
