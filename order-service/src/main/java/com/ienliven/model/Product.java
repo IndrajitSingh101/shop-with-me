@@ -1,18 +1,14 @@
 package com.ienliven.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
-import java.math.BigDecimal;
+import lombok.*;
 
 @Data
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Product {
-    String id;
-    String categoryId;
-    String productName;
-    String quantity;
-    BigDecimal unitPrice;
+    private String category;
+    private String productName;
 }
