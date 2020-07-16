@@ -1,0 +1,7 @@
+# Configuration file
+# key = value
+quarkus:
+  swagger-ui:
+    path: /flurry
+
+  
