@@ -70,7 +70,7 @@ docker run \
 see consul members : docker exec server consul members
 
 ## Inventory service
-## Mondo DB
+## Mongo DB
 Mongo docker :
 docker pull mongodb
 docker run -p 27017:27017 --name mongodb mongo
