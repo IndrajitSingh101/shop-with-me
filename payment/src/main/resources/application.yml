@@ -1,0 +1,36 @@
+quarkus:
+#  log:
+#    console:
+#      json:
+#        pretty-print: true
+#        date-format: "YYYY-MM-dd HH:mm:ss"
+#        exception-output-type: "detailed-and-formatted"
+
+  datasource:
+    db-kind: mysql
+    username: root
+    password: Password
+    jdbc:
+      url: jdbc:mysql://localhost:3306/payment_db
+
+  liquibase:
+    migrate-at-start: true
+    change-log: db/changeLog-master.xml
+
+kafka:
+  bootstrap:
+    servers: localhost:9092
+mp:
+  messaging:
+    incoming:
+      payment-request:
+        connector: smallrye-kafka
+        topic: payment-request
+        value:
+          deserializer: com.ienliven.payment.messaging.PaymentEventDeserializer
+    outgoing:
+      payment-status:
+        connector: smallrye-kafka
+        topic: payment-status
+        value:
+          serializer: io.quarkus.kafka.client.serialization.JsonbSerializer
