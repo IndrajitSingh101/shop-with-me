@@ -1,0 +1,19 @@
+quarkus:
+  mongodb:
+    connection-string: mongodb://localhost:27017
+    database: inventory
+  http:
+    cors: true
+ #   port: 9000
+  jaeger:
+    service-name: inventory
+    sampler-type: const
+    sampler-param: 1
+  log:
+    console:
+      format: traceId=%X{traceId}, parentId=%X{parentId}, spanId=%X{spanId}, sampled=%X{sampled} [%c{2.}] (%t) %s%e%n %d{HH:mm:ss} %-5p
+    handler:
+      gelf:
+        port: 12201
+        host: localhost
+        enabled: true

@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="indrajit" id="1">
+        <createTable tableName="ORDER">
+            <column name="orderID" type="VARCHAR(30)"/>
+            <column name="paymentMode" type="VARCHAR(30)"/>
+            <column name="paymentStatus" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="indrajit" id="2">
+        <createTable tableName="SHOPPINGCARTITEM">
+            <column name="id" type="BIGINT"/>
+            <column name="shoppingCartID" type="VARCHAR(30)"/>
+            <column name="sku" type="VARCHAR(30)"/>
+            <column name="quantity" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

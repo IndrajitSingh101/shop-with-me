@@ -1,3 +1,24 @@
+service :
+
+order:
+
+Input: OrderEvent
+> add/remove items to shopping cart corresponding to shopping cart id
+> checkout order
+> route to payment service for an order
+> update inventory count for an item
+output: PaymentEvent
+subscribers: inventory / payment 
+
+payment:
+
+Input: PaymentEvent
+> receive Payment event from order service
+> process it against a given vendor
+output: PaymentStatusEvent
+subscribers : Order
+
+
 Consul start using vagrant
 
 Vagrant up
@@ -48,3 +69,11 @@ docker run -p 27017:27017 --name mongodb mongo
 Things to start before setting up application in your local:
 consul
 docker
+
+
+Pre-requisite Payment service:
+docker pull mysql
+docker run -p 3306:3306 --name=mysqltest -e MYSQL_ROOT_PASSWORD=Password -e MYSQL_DATABASE=payment_db -i mysql
+
+**Open-tracing:**
+docker run -p 5775:5775/udp -p 6831:6831/udp -p 6832:6832/udp -p 5778:5778 -p 16686:16686 -p 14268:14268 jaegertracing/all-in-one:latest
