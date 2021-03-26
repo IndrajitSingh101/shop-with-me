@@ -1,16 +1,21 @@
-#service :
+# service :
 
-##order:
+## order:
 
-Input: OrderEvent
+### Input: OrderEvent
 > add/remove items to shopping cart corresponding to shopping cart id
+
 > checkout order
+
 > route to payment service for an order
+
 > update inventory count for an item
+
 output: PaymentEvent
+
 subscribers: inventory / payment 
 
-payment:
+## payment:
 
 Input: PaymentEvent
 > receive Payment event from order service
