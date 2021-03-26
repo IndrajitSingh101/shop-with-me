@@ -1,4 +1,4 @@
-# order project
+# Inventory module
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
