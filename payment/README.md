@@ -1,4 +1,4 @@
-# demo project
+# payment module
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
