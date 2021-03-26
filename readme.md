@@ -17,14 +17,17 @@ subscribers: inventory / payment
 
 ## payment:
 
-Input: PaymentEvent
+### Input: PaymentEvent
+
 > receive Payment event from order service
+
 > process it against a given vendor
+
 output: PaymentStatusEvent
 subscribers : Order
 
 
-Consul start using vagrant
+# Consul start using vagrant
 
 Vagrant up
 
@@ -45,7 +48,7 @@ vagrant destroy
 
 /Users/indrajitsingh/study/softwares/mongodb/bin/mongod --dbpath /Users/indrajitsingh/study/set-me-up/data
 
-consul docker:
+## consul docker:
 
 docker consul pull
 
@@ -66,7 +69,8 @@ docker run \
 
 see consul members : docker exec server consul members
 
-Inventory service
+## Inventory service
+## Mondo DB
 Mongo docker :
 docker pull mongodb
 docker run -p 27017:27017 --name mongodb mongo
@@ -76,9 +80,9 @@ consul
 docker
 
 
-Pre-requisite Payment service:
+## Pre-requisite Payment service:
 docker pull mysql
 docker run -p 3306:3306 --name=mysqltest -e MYSQL_ROOT_PASSWORD=Password -e MYSQL_DATABASE=payment_db -i mysql
 
-**Open-tracing:**
+## Open-tracing:
 docker run -p 5775:5775/udp -p 6831:6831/udp -p 6832:6832/udp -p 5778:5778 -p 16686:16686 -p 14268:14268 jaegertracing/all-in-one:latest
