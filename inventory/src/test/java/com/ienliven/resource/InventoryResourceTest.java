@@ -6,7 +6,6 @@ import com.github.dockerjava.api.model.Ports;
 import com.ienliven.containers.MongoDBContainer;
 import com.ienliven.data.Item;
 import com.ienliven.enumeration.InventoryOperationStatus;
-import com.ienliven.service.InventoryService;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -18,8 +17,7 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import javax.inject.Inject;
-import static com.ienliven.containers.MongoDBContainer.MONGODB_HOST;
-import static com.ienliven.containers.MongoDBContainer.MONGODB_PORT;
+import static com.ienliven.containers.MongoDBContainer.*;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 

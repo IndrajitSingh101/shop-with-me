@@ -18,10 +18,10 @@ public class ShoppingCartResource {
     OrderService orderService;
 
     @PUT
-    @Path("add")
+    @Path("update")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Cart addToShoppingCart(Cart shoppingCart){
+    public Cart updateShoppingCart(Cart shoppingCart){
         String orderID = "";
         String shoppingCartID="";
         // check if the order is new

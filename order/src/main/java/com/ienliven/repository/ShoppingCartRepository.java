@@ -20,6 +20,7 @@ public class ShoppingCartRepository implements PanacheRepository<ShoppingCartIte
     };
 
  public void updateShoppingCart(Cart shoppingCart){
+     delete("shoppingCartID=?",shoppingCart.getShoppingCartID());
      shoppingCart.getItems().stream().map(item->ShoppingCartItem.builder().sku(item.getSku()).quantity(item.getQuantity())
              .shoppingCartID(shoppingCart.getShoppingCartID()).build())
              .forEach(shoppingCartItem->shoppingCartItemConsumer.accept(shoppingCartItem));

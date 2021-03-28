@@ -13,9 +13,6 @@ import javax.persistence.Id;
 @Getter
 @Setter
 public class ShoppingCartItem {
-    @Id
-    @GeneratedValue
-    private Long id;
     private String shoppingCartID;
     private String sku;
     private Integer quantity;

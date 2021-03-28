@@ -8,8 +8,5 @@
     <packaging>pom</packaging>
     <name>set-me-up-parent</name>
     <modules>
-        <module>gateway</module>
-        <module>inventory-service</module>
-        <module>order-service</module>
     </modules>
 </project>
