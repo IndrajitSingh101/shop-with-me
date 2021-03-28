@@ -28,9 +28,11 @@ public class InventoryResource {
     @Path("publishItem")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response publishItem(ItemDTO item) {
-        LOGGER.info(item.toString());
-        inventoryService.persistItemDetails(new Item().convertFromDTO(item));
+    public Response publishItem(List<ItemDTO> itemList) {
+        for(ItemDTO item:itemList) {
+            LOGGER.info(item.toString());
+            inventoryService.persistItemDetails(new Item().convertFromDTO(item));
+        }
         return Response.ok(InventoryOperationStatus.ITEM_PERSISTED.name()).build();
     }
 
@@ -38,8 +40,10 @@ public class InventoryResource {
     @Path("addCategory")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addCategory(CategoryDTO categoryDTO){
-        inventoryService.addCategory(new Category().convertFromDTO(categoryDTO));
+    public Response addCategory(List<CategoryDTO> categoryList){
+        for (CategoryDTO categoryDTO : categoryList) {
+            inventoryService.addCategory(new Category().convertFromDTO(categoryDTO));
+        }
         return Response.ok(InventoryOperationStatus.CATEGORY_PERSISTED.name()).build();
     }
 

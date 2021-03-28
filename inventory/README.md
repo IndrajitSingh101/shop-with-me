@@ -42,3 +42,75 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 You can then execute your native executable with: `./target/order-1.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.html.
+
+## sample input
+
+category:
+[{
+"categoryName":"WOMEN'S CLOTHING",
+"categoryDescription":"Women's clothing"
+},
+{
+"categoryName":"MEN'S CLOTHING",
+"categoryDescription":"men's clothing"
+},
+{
+"categoryName":"GAMING",
+"categoryDescription":"Gaming accessory"
+}
+]
+
+category ids to be replaced
+items:
+[
+{
+"categoryID":"16b1ab90-6692-433b-a9b8-bff6a30b10c6",
+"itemName":"PEPE Jeans for women",
+"itemDescription":"Short jeans",
+"price":6500,
+"itemQuantity":100,
+"address":"xyz",
+"manufacturingCompany":"PEPE",
+"vendorName":"PEPE"
+},
+{
+"categoryID":"16b1ab90-6692-433b-a9b8-bff6a30b10c6",
+"itemName":"PEPE shirt for women",
+"itemDescription":"shirt",
+"price":1500,
+"itemQuantity":100,
+"address":"xyz",
+"manufacturingCompany":"PEPE",
+"vendorName":"PEPE"
+},
+{
+"categoryID":"499b5914-62ee-4368-a8ad-b09c61837709",
+"itemName":"Prince of persia",
+"itemDescription":"Prince of persia",
+"price":6500,
+"itemQuantity":100,
+"address":"xyz",
+"manufacturingCompany":"UBISOFT",
+"vendorName":"UBISOFT"
+},
+{
+"categoryID":"16b1ab90-6692-433b-a9b8-bff6a30b10c6",
+"itemName":"PEPE Jeans for men",
+"itemDescription":"men jeans",
+"price":6500,
+"itemQuantity":100,
+"address":"xyz",
+"manufacturingCompany":"PEPE",
+"vendorName":"PEPE"
+},
+{
+"categoryID":"16b1ab90-6692-433b-a9b8-bff6a30b10c6",
+"itemName":"PEPE shirts for men",
+"itemDescription":"men shirts",
+"price":6500,
+"itemQuantity":100,
+"address":"xyz",
+"manufacturingCompany":"PEPE",
+"vendorName":"PEPE"
+}
+]
