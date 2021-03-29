@@ -1,6 +1,6 @@
 package com.ienliven.messaging;
 
-import com.ienliven.payment.enumerations.PaymentMode;
+import com.ienliven.enumerations.PaymentMode;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;

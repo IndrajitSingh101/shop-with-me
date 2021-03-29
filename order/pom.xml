@@ -71,6 +71,10 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-mysql</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-config-yaml</artifactId>
     </dependency>
     <dependency>
@@ -108,10 +112,8 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.ienliven.payment</groupId>
-      <artifactId>payment</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>compile</scope>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-liquibase</artifactId>
     </dependency>
   </dependencies>
   <build>

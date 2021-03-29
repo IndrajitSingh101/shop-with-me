@@ -1,5 +1,6 @@
 package com.ienliven.data;
 
+import com.ienliven.enumerations.OrderStatus;
 import com.ienliven.enumerations.PaymentStatus;
 import lombok.*;
 
@@ -8,7 +9,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 
-@Entity(name="ORDER")
+@Entity(name="ORDERS")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,4 +21,8 @@ public class Order {
     private String shoppingCartID;
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+    private Double orderValue;
+
 }

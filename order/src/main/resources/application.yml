@@ -1,29 +1,44 @@
-kafka:
-  bootstrap:
-    servers: localhost:9092
-mp:
-  messaging:
-    outgoing:
-      payment-request:
-        connector: smallrye-kafka
-        topic: payment-request
-        value:
-          serializer: io.quarkus.kafka.client.serialization.JsonbSerializer
-quarkus:
-  jaeger:
-    service-name: order
-    sampler-type: const
-    sampler-param: 1
-  log:
-    console:
-      format: traceId=%X{traceId}, parentId=%X{parentId}, spanId=%X{spanId}, sampled=%X{sampled} [%c{2.}] (%t) %s%e%n %d{HH:mm:ss} %-5p
-    handler:
-      gelf:
-        port: 12201
-        host: localhost
-        enabled: true
+"%dev":
+  kafka:
+    bootstrap:
+      servers: localhost:9092
+  mp:
+    messaging:
+      outgoing:
+        payment-request:
+          connector: smallrye-kafka
+          topic: payment-request
+          value:
+            serializer: io.quarkus.kafka.client.serialization.JsonbSerializer
+  quarkus:
+    jaeger:
+      service-name: order
+      sampler-type: const
+      sampler-param: 1
+    log:
+      console:
+        format: traceId=%X{traceId}, parentId=%X{parentId}, spanId=%X{spanId}, sampled=%X{sampled} [%c{2.}] (%t) %s%e%n %d{HH:mm:ss} %-5p
+      handler:
+        gelf:
+          port: 12201
+          host: localhost
+          enabled: true
+    http:
+      port: 9006
+    datasource:
+      db-kind: mysql
+      username: root
+      password: password
+      jdbc:
+        url: jdbc:mysql://localhost:3306/orders_db?createDatabaseIfNotExist=true
 
-com:
-  ienliven:
-    client:
-      InventoryClient/mp-rest/url: http://localhost:9000
+    liquibase:
+      migrate-at-start: true
+      change-log: db/changeLog-master.xml
+    hibernate-orm:
+      log:
+        sql: true
+  com:
+    ienliven:
+      client:
+        InventoryClient/mp-rest/url: http://localhost:9000

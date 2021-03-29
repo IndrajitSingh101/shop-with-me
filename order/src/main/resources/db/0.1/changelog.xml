@@ -8,17 +8,22 @@
     http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <changeSet author="indrajit" id="1">
-        <createTable tableName="ORDER">
-            <column name="orderID" type="VARCHAR(30)"/>
-            <column name="shoppingCartID" type="VARCHAR(30)"/>
+        <createTable tableName="ORDERS">
+            <column name="orderID" type="VARCHAR(200)"/>
+            <column name="shoppingCartID" type="VARCHAR(200)"/>
             <column name="paymentMode" type="VARCHAR(30)"/>
-            <column name="paymentStatus" type="BOOLEAN"/>
+            <column name="paymentStatus" type="VARCHAR(30)"/>
+            <column name="orderStatus" type="VARCHAR(30)"/>
+            <column name="orderValue" type="DOUBLE" />
         </createTable>
     </changeSet>
     <changeSet author="indrajit" id="2">
         <createTable tableName="SHOPPINGCARTITEM">
-            <column name="shoppingCartID" type="VARCHAR(30)"/>
-            <column name="sku" type="VARCHAR(30)"/>
+            <column name="sequenceID" type="BIGINT" autoIncrement="true" startWith="1">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="shoppingCartID" type="VARCHAR(200)"/>
+            <column name="sku" type="VARCHAR(200)"/>
             <column name="quantity" type="INTEGER"/>
         </createTable>
     </changeSet>

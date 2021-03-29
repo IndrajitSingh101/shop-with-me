@@ -3,9 +3,11 @@ package com.ienliven.resource;
 
 import com.ienliven.client.InventoryClient;
 import com.ienliven.data.ShoppingCartItem;
+import com.ienliven.enumerations.OrderStatus;
 import com.ienliven.messaging.OrderEvent;
 import com.ienliven.messaging.PaymentEvent;
 import com.ienliven.messaging.PaymentInfo;
+import com.ienliven.service.OrderService;
 import com.ienliven.service.ShoppingCartService;
 import io.smallrye.reactive.messaging.annotations.Broadcast;
 import org.eclipse.microprofile.reactive.messaging.Channel;
@@ -31,28 +33,16 @@ public class OrderResource {
 
     @Inject
     ShoppingCartService shoppingCartService;
-    //Rest client to call another service endpoint
-    @Inject
-    @RestClient
-    InventoryClient inventoryClient;
 
     @Inject
-    @Channel("payment-request")
-    Emitter<PaymentEvent> paymentEventEmitter;
+    OrderService orderService;
 
     @POST
     @Path("processOrder")
     @Consumes(MediaType.APPLICATION_JSON)
     public void checkout(OrderEvent order){
-       List<ShoppingCartItem> shoppingCartItemList= shoppingCartService.getShoppingCartItems(order.getShoppingCartID());
-        Double totalPrice=shoppingCartItemList.stream().map(shoppingCartItem -> shoppingCartItem.getQuantity()*inventoryClient.getPrice(shoppingCartItem.getSku()))
-                .reduce(0.0,Double::sum);
-       // create payment request message
-        PaymentEvent paymentEvent=PaymentEvent.builder().correlationID(UUID.randomUUID().toString())
-                .orderID(order.getOrderID())
-                .paymentInfo(PaymentInfo.builder().account(order.getAccount()).amount(BigDecimal.valueOf(totalPrice)).mode(order.getMode()).build())
-                .build();
-        paymentEventEmitter.send(paymentEvent);
+        orderService.updateOrder(order.getOrderID(),order.getShoppingCartID(), OrderStatus.CHECKOUT_INITIATED);
+
     }
 
 
