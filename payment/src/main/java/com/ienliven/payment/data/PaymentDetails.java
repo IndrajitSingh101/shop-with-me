@@ -2,6 +2,7 @@ package com.ienliven.payment.data;
 
 import com.ienliven.payment.enumerations.PaymentMode;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,8 +15,9 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class PaymentDetails {
     @Id
-    @GeneratedValue
-    private Long paymentID;
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private Long sequenceID;
     private String correlationID;
     private String orderID;
     @Enumerated(EnumType.STRING)

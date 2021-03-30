@@ -10,6 +10,12 @@
           topic: payment-request
           value:
             serializer: io.quarkus.kafka.client.serialization.JsonbSerializer
+      incoming:
+        payment-status:
+          connector: smallrye-kafka
+          topic: payment-status
+          value:
+            deserializer: com.ienliven.messaging.PaymentStatusEventDeserializer
   quarkus:
     jaeger:
       service-name: order

@@ -1,15 +1,15 @@
 package com.ienliven.payment.messaging;
 
 import com.ienliven.payment.dto.PaymentInfo;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Data
 @Getter
 @Setter
 @Builder
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class PaymentEvent {
     private String correlationID;
     private PaymentInfo paymentInfo;

@@ -41,7 +41,7 @@ public class OrderResource {
     @Path("processOrder")
     @Consumes(MediaType.APPLICATION_JSON)
     public void checkout(OrderEvent order){
-        orderService.updateOrder(order.getOrderID(),order.getShoppingCartID(), OrderStatus.CHECKOUT_INITIATED);
+        orderService.updateOrder(order, OrderStatus.CHECKOUT_INITIATED);
 
     }
 

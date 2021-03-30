@@ -9,11 +9,11 @@
 
     <changeSet author="indrajit" id="1">
         <createTable tableName="payment_details">
-            <column name="paymentID" type="NUMERIC">
-                <constraints nullable="false"/>
+            <column name="sequenceID" type="BIGINT" autoIncrement="true" startWith="1">
+                <constraints nullable="false" primaryKey="true" />
             </column>
-            <column name="correlationID" type="VARCHAR(30)"/>
-            <column name="orderID" type="VARCHAR(30)"/>
+            <column name="correlationID" type="VARCHAR(200)"/>
+            <column name="orderID" type="VARCHAR(200)"/>
             <column name="paymentMode" type="VARCHAR(30)"/>
             <column name="amount" type="DECIMAL"/>
             <column name="paymentStatus" type="BOOLEAN"/>

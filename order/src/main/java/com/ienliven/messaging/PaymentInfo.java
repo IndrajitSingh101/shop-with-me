@@ -14,6 +14,6 @@ import java.math.BigDecimal;
 @Builder
 public class PaymentInfo {
     private String account;
-    private PaymentMode mode;
+    private String mode;
     private BigDecimal amount;
 }
